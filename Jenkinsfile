@@ -1,0 +1,28 @@
+pipeline {
+    agent slave01
+    options {
+        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '3')
+        timeout(5)
+        timestamps
+      }
+      environment {
+        env01 = "production"
+        env02 = "test"
+      }
+      stages {
+        stage('Show environments') {
+            steps {
+                echo $env01
+                echo $env02
+            }
+        }
+        stage('Timeout ovveride') {
+            options {
+              timeout(time: 30, unit: 'SECONDS')
+            }
+            steps {
+                sleep 30
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@ pipeline {
     options {
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '3')
         timeout(5)
-        timestamps
+        timestamps()
       }
       environment {
         env01 = "production"

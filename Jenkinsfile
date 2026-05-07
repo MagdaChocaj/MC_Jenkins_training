@@ -1,5 +1,5 @@
 pipeline {
-    agent slave01
+    agent {docker "slave01"}
     options {
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '3')
         timeout(5)

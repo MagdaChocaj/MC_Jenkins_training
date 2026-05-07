@@ -12,8 +12,8 @@ pipeline {
       stages {
         stage('Show environments') {
             steps {
-                echo $env01
-                echo $env02
+                echo "env.env01"
+                echo "env.env02"
             }
         }
         stage('Timeout ovveride') {
